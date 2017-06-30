@@ -16,6 +16,10 @@
     "jquery": "^3.1.1",
     "laravel-mix": "0.*",
     "lodash": "^4.17.4",
+    "sierra-library": "^2.0.0",
     "vue": "^2.1.10"
+  },
+  "dependencies": {
+    "typed.js": "file:resources/assets/js/typed.js"
   }
 }
