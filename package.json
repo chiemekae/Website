@@ -19,7 +19,5 @@
     "sierra-library": "^2.0.0",
     "vue": "^2.1.10"
   },
-  "dependencies": {
-    "typed.js": "file:resources/assets/js/typed.js"
-  }
+  "dependencies": {}
 }
