@@ -25,9 +25,9 @@ $btn-default-bg: #00BD9C;
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
-html {
+body {
+  max-width: 100%;
   font-weight: 100;
-  overflow-x: hidden;
 }
 
 p {
@@ -126,27 +126,36 @@ p {
 }
 
 .invisible-image {
-  visibility: hidden;
+  display: none;
 }
 
 .projects-div-title {
-  text-align: center;
-  margin: 0;
-  padding-top: 25%;
+  display: table-cell;
+  vertical-align: middle;
+  height: 100%;
+}
+
+.projects-div-title p {
   color: #FFF;
 }
 
-.projects-div-title:hover {
+.projects-div-title p:hover {
   color: #298DFA;
+}
+
+.no-background-image {
+  display: table;
 }
 
 .description {
   position: absolute;
   bottom: 0;
+  left: 0;
   width: 100%;
   min-height: 5%;
   background-color: #000;
   opacity: 0;
+  vertical-align: middle;
 }
 
 .description p {
