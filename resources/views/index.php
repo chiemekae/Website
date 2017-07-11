@@ -102,10 +102,9 @@
         </div>
       </div>
       <?php
-        use Illuminate\Support\Facades\DB;
         $projects = DB::select('select * from projects', [1]);
 
-        //If there's an even number of projects, show more exaples title at top
+        //If there's an even number of projects, show more examples title at top
         $count = count($projects);
         if($count % 2 == 0){
           echo '<p class="center-text">
@@ -161,125 +160,169 @@
                 </div>';
         }
        ?>
-       <script>
-         //Resize windows according to height of other images with jQuery
-         var resizeProjectImage = function (newHeight){
-           $(".no-background-image").css("height", newHeight);
-         };
-         $(window).bind('load', function(){
-           resizeProjectImage($(".project-image").height());
-         });
-         $(window).resize(function(){
-           resizeProjectImage($(".project-image").height());
-         });
+     </div>
 
-         var imageInterval = null;
+    <script>
+       //Resize windows according to height of other images with jQuery
+       var resizeProjectImage = function (newHeight){
+         $(".no-background-image").css("height", newHeight);
+       };
+       $(window).bind('load', function(){
+         resizeProjectImage($(".project-image").height());
+       });
+       $(window).resize(function(){
+         resizeProjectImage($(".project-image").height());
+       });
 
-         //Event handling for description window when project is hovered over
-         $( ".desciption-container" ).hover(function () {
-          //Fade in animation
-           jQuery(".description", this)
-            .slideDown()
-            .animate(
-              { opacity: 1 },
-              { queue: false}
-            );
+       var imageInterval = null;
 
-            var backgroundImage = jQuery(".project-image", this);
+       //Event handling for description window when project is hovered over
+       $( ".desciption-container" ).hover(function () {
+         //Fade in animation
+         jQuery(".description", this)
+          .slideDown()
+          .animate(
+            { opacity: 1 },
+            { queue: false}
+          );
+          var backgroundImage = jQuery(".project-image", this);
+          var imageIndex = 2;
 
-            var imageIndex = 2;
+          //Hide project image title if it's there
+          if(jQuery(".projects-div-title", this)){
+            jQuery(".projects-div-title", this).css("display", "none");
+          }
 
-            //Hide project image title if it's there
-            if(jQuery(".projects-div-title", this)){
-              jQuery(".projects-div-title", this).css("display", "none");
+          //Set changing project image interval
+          imageInterval = setInterval(function () {
+            backgroundImage.attr("src", "images/projects/"+backgroundImage.attr("alt")+"-"+imageIndex+".png");
+            //Make project image visible if invisible
+            backgroundImage.css("display", "inline");
+            imageIndex++;
+            if (imageIndex == 4) {
+              imageIndex = 1;
             }
+          }, "2000");
+        },
+        // When the project is no longer hovered over
+        function () {
+          clearInterval(imageInterval);
+          //Reset project image to original
+          var backgroundImage = jQuery(".project-image", this);
 
-            //Set changing project image interval
-            imageInterval = setInterval(function () {
-              backgroundImage.attr("src", "images/projects/"+backgroundImage.attr("alt")+"-"+imageIndex+".png");
-
-              //Make project image visible if invisible
-              backgroundImage.css("display", "inline");
-
-              imageIndex++;
-              if (imageIndex == 4) {
-                imageIndex = 1;
-              }
-            }, "2000");
-
-
-          },
-          // When the project is no longer hovered over
-          function () {
-            clearInterval(imageInterval);
-            //Reset project image to original
-            var backgroundImage = jQuery(".project-image", this);
-
-            //If its a window without a background image, hide image and show title
-            if (backgroundImage.hasClass('invisible-image')){
-              backgroundImage.attr("src", "");
-              backgroundImage.css("display", "none");
-              jQuery(".projects-div-title", this).css("display", "table-cell");
-            }
-            else{
-              // If it has a background image, change back to the original
-              backgroundImage.attr("src", "images/projects/"+backgroundImage.attr("alt")+"-1.png");
-            }
-            //Fade out animation
-            jQuery(".description", this)
-             .slideUp()
-             .animate(
-               { opacity: 0 },
-               { queue: false}
-             );
-           }
-         );
-       </script>
-    </div>
+          //If its a window without a background image, hide image and show title
+          if (backgroundImage.hasClass('invisible-image')){
+            backgroundImage.attr("src", "");
+            backgroundImage.css("display", "none");
+            jQuery(".projects-div-title", this).css("display", "table-cell");
+          }
+          else{
+            // If it has a background image, change back to the original
+            backgroundImage.attr("src", "images/projects/"+backgroundImage.attr("alt")+"-1.png");
+          }
+          //Fade out animation
+          jQuery(".description", this)
+           .slideUp()
+           .animate(
+             { opacity: 0 },
+             { queue: false}
+           );
+         }
+       );
+    </script>
 
     <!-- Contact -->
     <div class="container" id="contact">
-      <div class="row">
-        <div class="col-sm-12">
-          <p class="title">Let's build something together!</p>
-        </div>
-      </div>
-      <!-- Internships -->
-      <div id="internship">
-        <div class="row">
-          <div class="col-sm-12">
-            <p class="center-text secondary-title">Internships</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <p class="center-text">If your company has an open position for a web development intern, feel free to contact me at my email, chiemeka@ekwunazu.com. I am avaliable during the summer and winter months in the Baltimore area.</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="centered-button-div">
-              <a href="mailto:chiemeka@ekwunazu.com">
-                <button type="button" class="btn-default">Email me</button>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Contractual jobs -->
-      <div id="contractual">
-        <div class="row">
-          <div class="col-sm-12">
-            <p class="center-text secondary-title">Contractual Job</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <p class="center-text">Need a website? Fill out the form below and I’ll get in touch!</p>
-          </div>
-        </div>
-      </div>
+     <div class="row">
+       <div class="col-sm-12">
+         <p class="title">Let's build something together!</p>
+       </div>
+     </div>
+     <!-- Internships -->
+     <div id="internship">
+       <div class="row">
+         <div class="col-sm-12">
+           <p class="center-text secondary-title">Internships</p>
+         </div>
+       </div>
+       <div class="row">
+         <div class="col-sm-12">
+           <p class="center-text">If your company has an open position for a web development intern, feel free to contact me at my email, chiemeka@ekwunazu.com. I am avaliable during the summer and winter months in the Baltimore area.</p>
+         </div>
+       </div>
+       <div class="row">
+         <div class="col-sm-12">
+           <div class="centered-button-div">
+             <a href="mailto:chiemeka@ekwunazu.com">
+               <button type="button" class="btn-default">Email me</button>
+             </a>
+           </div>
+         </div>
+       </div>
+     </div>
+     <!-- Contractual jobs -->
+     <div id="contractual">
+       <div class="row">
+         <div class="col-sm-12">
+           <p class="center-text secondary-title">Contractual Job</p>
+         </div>
+       </div>
+       <div class="row">
+         <div class="col-sm-12">
+           <p class="center-text">Need a website? Fill out the form below and I’ll get in touch!</p>
+         </div>
+       </div>
+       <form class="form">
+         <div class="row">
+           <div class="col-sm-12">
+             <input id="contractual-name" class="contractual-input" type="text" placeholder="Write your name here.."></input>
+           </div>
+         </div>
+         <div class="row">
+           <div class="col-sm-12">
+             <input id="contractual-email" class="contractual-input" type="text" placeholder="Let me know what email to contact you back at.."></input>
+           </div>
+         </div>
+         <div class="row">
+           <div class="col-sm-12">
+             <input id="contractual-company" class="contractual-input" type="text" placeholder="Let me know the name of your company if applicable.."></input>
+           </div>
+         </div>
+         <div class="row">
+           <div class="col-sm-12">
+             <textarea id="contractual-description" class="contractual-textarea" placeholder="Tell me about your project!" required></textarea><br>
+           </div>
+         </div>
+         <div class="row">
+           <div class="col-sm-12">
+             <button type="button" onclick="submitContractual()" class="btn-default">Send</button>
+           </div>
+         </div>
+       </form>
+     </div>
+     <script>
+       function submitContractual() {
+         var submitData = {
+           "name" : document.getElementById("contractual-name").value,
+           "email" : document.getElementById("contractual-email").value,
+           "company" : document.getElementById("contractual-company").value,
+           "description" : document.getElementById("contractual-description").value
+         };
+         $.ajax({
+           async: false,
+           url: "/submitjob",
+           type: "post",
+           data: submitData,
+           success: function (response) {
+             alert(response);
+           },
+           error: function(jqXHR, textStatus, errorThrown) {
+             console.log(textStatus, errorThrown);
+           }
+         });
+       }
+     </script>
     </div>
-  </div>
-</body>
+   </div>
+  </body>
 </html>

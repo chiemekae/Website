@@ -27,17 +27,20 @@ const app = new Vue({
 
 //Move to section of webpage clicked with Smoothscroll
 $(document).ready(function () {
+    onScroll();
     $(document).on("scroll", onScroll);
 
     $('a[href^="#"]').on('click', function (e) {
         e.preventDefault();
         $(document).off("scroll");
 
+        //Change active link
         $('a').each(function () {
             $(this).parent().removeClass('active');
         })
         $(this).parent().addClass('active');
 
+        //Scroll to section of webpage
         var target = this.hash,
             menu = target;
         $target = $(target);
@@ -47,12 +50,21 @@ $(document).ready(function () {
             window.location.hash = target;
             $(document).on("scroll", onScroll);
         });
+
+        //Toggle nav menu if visible
+        if($('.navbar-toggle').css('display') !='none'){
+          $('.navbar-toggle').click();
+        }
+    });
+    //Show background color when hamburger menu is cliced
+    $('.navbar-toggle ').on('click', function (e) {
+      $('.navbar').addClass("navbar-dark");
     });
 });
 
-//Change indicated link on navbar on scroll
 function onScroll(event){
     var scrollPos = $(document).scrollTop();
+    //Change indicated link on navbar on scroll
     $('.nav a').each(function () {
         var currLink = $(this);
         var refElement = $(currLink.attr("href"));
@@ -65,4 +77,11 @@ function onScroll(event){
             currLi.removeClass("active");
         }
     });
+    //Change background of navbar once past the background image at the top
+    var transitionHeight = $('.background-image-container').height() - $('.navbar').height();
+    if(scrollPos > transitionHeight){
+        $('.navbar').addClass("navbar-dark");
+    }else{
+        $('.navbar').removeClass("navbar-dark");
+    }
 }

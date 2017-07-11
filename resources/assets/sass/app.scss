@@ -13,10 +13,12 @@ $line-height-computed: 20px;
 
 //Navbar
 $navbar-inverse-link-color: #FFFFFF;
-$navbar-inverse-bg: rgba(34, 34, 34, 0.8);
+$navbar-inverse-bg: transparent;
 $navbar-inverse-link-active-bg: transparent;
 $navbar-inverse-border: transparent;
 $navbar-inverse-link-active-color: #298DFA;
+$navbar-inverse-toggle-border-color: transparent;
+$navbar-inverse-toggle-hover-bg: transparent;
 
 //Button
 $btn-default-color: #FFF;
@@ -33,6 +35,38 @@ body {
 p {
   text-align: center;
   font-size: 18px;
+}
+
+input, textarea {
+  color: #3B3B3B;
+  background-color: transparent;
+  border-color: transparent;
+  border-bottom: 1px solid #3B3B3B;
+}
+
+//Changing placeholder text color
+$placeholder-color: #666;
+// WebKit, Blink, Edge
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: $placeholder-color;
+}
+// Mozilla Firefox 4 to 18
+input:-moz-placeholder, textarea:-moz-placeholder {
+  color: $placeholder-color;
+  opacity:  1; //Firefox defaults to lower opacity, so need this
+}
+// Mozilla Firefox 19+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  color: $placeholder-color;
+  opacity:  1; //Firefox defaults to lower opacity, so need this
+}
+// Internet Explorer 10-11
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color: $placeholder-color;
+}
+// Microsoft Edge
+input::-ms-input-placeholder, textarea::-ms-input-placeholder {
+  color: $placeholder-color;
 }
 
 .intro {
@@ -68,6 +102,16 @@ p {
   position: fixed;
   width: 100%;
   z-index: 1;
+  //Transition for background color on scroll
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.navbar-dark{
+  background-color: rgba(34, 34, 34, 0.8);
 }
 
 .centered-button-div {
@@ -84,9 +128,16 @@ p {
 }
 
 .title {
-  margin-top: 40px;
+  display: inline-block;
+  margin: 20px auto;
   text-transform: capitalize;
   font-size: 30px;
+  font-weight: 300;
+  border-bottom: 3px solid #3B3B3B;
+}
+
+.col-sm-12 {
+  text-align: center;
 }
 
 .chiemeka {
@@ -127,6 +178,8 @@ p {
 
 .invisible-image {
   display: none;
+  //Make alt text blend with background
+  color: #00BD9C;
 }
 
 .projects-div-title {
@@ -168,6 +221,27 @@ p {
   padding-top: 10px;
 }
 
+.form {
+  text-align: center;
+  width: 750px;
+  margin: 0 auto;
+}
+
+.form .row {
+  padding: 5px 0;
+}
+
+.contractual-input {
+  width: 90%;
+  height: 50px;
+}
+
+.contractual-textarea {
+  width: 90%;
+  height: 200px;
+  resize: none;
+}
+
 #typed {
   top: 60%;
 }
@@ -191,6 +265,9 @@ p {
 
 @media screen and (max-width:768px){
   #projects .col-sm-5 {
+    width: 100%;
+  }
+  .form {
     width: 100%;
   }
 }

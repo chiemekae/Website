@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,4 +20,8 @@ Route::get('welcome', function () {
 
 Route::get('modal', function () {
     return view('modal');
+});
+
+Route::post('/submitjob', function () {
+    return "hi";
 });
