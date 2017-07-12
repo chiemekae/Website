@@ -298,6 +298,11 @@
              <button type="button" onclick="submitContractual()" class="btn-default">Send</button>
            </div>
          </div>
+         <div id="" class="form-sent row">
+           <div class="col-sm-12">
+             <p class="center-text">Form Sent!</p>
+           </div>
+         </div>
        </form>
      </div>
      <script>
@@ -314,7 +319,7 @@
            type: "post",
            data: submitData,
            success: function (response) {
-             alert(response);
+             $(".form-sent").css("display", "inline");
            },
            error: function(jqXHR, textStatus, errorThrown) {
              console.log(textStatus, errorThrown);
@@ -322,6 +327,9 @@
          });
        }
      </script>
+    </div>
+    <!-- Links -->
+    <div>
     </div>
    </div>
   </body>

@@ -22,6 +22,4 @@ Route::get('modal', function () {
     return view('modal');
 });
 
-Route::post('/submitjob', function () {
-    return "hi";
-});
+Route::post('/submitjob', 'EmailController@sendJobEmail');

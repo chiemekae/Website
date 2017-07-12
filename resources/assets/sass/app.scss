@@ -242,6 +242,10 @@ input::-ms-input-placeholder, textarea::-ms-input-placeholder {
   resize: none;
 }
 
+.form-sent {
+  display: none;
+}
+
 #typed {
   top: 60%;
 }
