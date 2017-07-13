@@ -797,7 +797,7 @@ $(document).ready(function () {
             $('.navbar-toggle').click();
         }
     });
-    //Show background color when hamburger menu is cliced
+    //Show background color when hamburger menu is clicked
     $('.navbar-toggle ').on('click', function (e) {
         $('.navbar').addClass("navbar-dark");
     });

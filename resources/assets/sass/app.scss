@@ -2,6 +2,9 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,600");
 
+//jQuery UI
+@import url("https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css");
+
 // Variables
 @import "variables";
 
@@ -26,6 +29,10 @@ $btn-default-bg: #00BD9C;
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+* {
+  outline: none;
+}
 
 body {
   max-width: 100%;
@@ -75,7 +82,7 @@ input::-ms-input-placeholder, textarea::-ms-input-placeholder {
 }
 
 .intro,
-#typed {
+.typed {
   position: absolute;
   right: 5%;
   color: #FFF;
@@ -112,6 +119,10 @@ input::-ms-input-placeholder, textarea::-ms-input-placeholder {
 
 .navbar-dark{
   background-color: rgba(34, 34, 34, 0.8);
+}
+
+.typed {
+  top: 60%;
 }
 
 .centered-button-div {
@@ -244,10 +255,26 @@ input::-ms-input-placeholder, textarea::-ms-input-placeholder {
 
 .form-sent {
   display: none;
+  padding-left: 10px;
 }
 
-#typed {
-  top: 60%;
+.ui-slider-handle {
+  border-radius: 50%;
+}
+
+.ui-state-active {
+  background: #00BD9C !important;
+  border: 1px solid #008C73 !important;
+}
+
+.slider-div {
+  width: 90%;
+  margin: 10px auto;
+}
+
+.input-title {
+  width: 90%;
+  border-bottom: 0px;
 }
 
 #projects,
@@ -265,6 +292,16 @@ input::-ms-input-placeholder, textarea::-ms-input-placeholder {
 
 #contact {
   background-color: #D8D8D8;
+}
+
+#budget-slider {
+  display: inline-block;
+  width: 74%;
+}
+
+#budget-slider-amount {
+  width: 24%;
+  text-align: center;
 }
 
 @media screen and (max-width:768px){

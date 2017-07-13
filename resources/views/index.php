@@ -2,15 +2,17 @@
 <html>
 <head>
   <title>Chiemeka Ekwunazu | Creative Web Developer and Designer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <!-- Stylesheet -->
   <link rel="stylesheet" href="<?php echo asset('css/app.css'); ?>" type="text/css">
   <!-- JS-->
   <script src="<?php echo asset('js/app.js'); ?>"></script>
   <!-- Typed.js-->
   <script src="<?php echo asset('js/typed.js'); ?>"></script>
-  <!-- AngularJS-->
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <!-- jQuery UI-->
+  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <!-- jQuery UI Touch Punch-->
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
 </head>
 <body>
   <nav class="navbar fixed-top navbar-inverse bg-black">
@@ -59,7 +61,7 @@
 
             //Typed.js
           	document.addEventListener("DOMContentLoaded", function(){
-          		Typed.new("#typed", {
+          		Typed.new(".typed", {
           			stringsElement: document.getElementsByClassName('typed-strings')[0],
           			typeSpeed: 0,
                 showCursor:false,
@@ -67,10 +69,10 @@
           		});
           	});
           </script>
-          <span id="typed"></span>
+          <span class="typed"></span>
           <script>
             //Adjust Typed.js placement according to the height of the background image
-            $('#typed').css("top", 400*(800/$(".background-image").height()));
+            $('.typed').css("top", 400*(800/$(".background-image").height()));
           </script>
       </div>
       <div class="container">
@@ -229,6 +231,8 @@
            );
          }
        );
+
+
     </script>
 
     <!-- Contact -->
@@ -288,6 +292,19 @@
              <input id="contractual-company" class="contractual-input" type="text" placeholder="Let me know the name of your company if applicable.."></input>
            </div>
          </div>
+         <div class="row" style="padding: 5px 0 0 0;">
+           <div class="col-sm-12">
+             <input class="input-title" type="text" value="Budget" readonly></input>
+           </div>
+         </div>
+         <div class="row">
+           <div class="col-sm-12">
+             <div class="slider-div">
+               <div id="budget-slider"></div>
+               <input id="budget-slider-amount" type="text" value="$10,000"></input>
+             </div>
+           </div>
+         </div>
          <div class="row">
            <div class="col-sm-12">
              <textarea id="contractual-description" class="contractual-textarea" placeholder="Tell me about your project!" required></textarea><br>
@@ -295,22 +312,36 @@
          </div>
          <div class="row">
            <div class="col-sm-12">
-             <button type="button" onclick="submitContractual()" class="btn-default">Send</button>
-           </div>
-         </div>
-         <div id="" class="form-sent row">
-           <div class="col-sm-12">
-             <p class="center-text">Form Sent!</p>
+             <button type="button" onclick="submitContractual()" class="btn-default">Send</button><p class="form-sent">Form Sent!</p>
            </div>
          </div>
        </form>
      </div>
      <script>
+       //jQuery UI Slider
+       $( function() {
+          $( "#budget-slider" ).slider({
+            range: "min",
+            min: 2000,
+            max: 50000,
+            value: 10000,
+            slide: function( event, ui ) {
+              $( "#budget-slider-amount" ).val("$" + ui.value.toLocaleString());
+            }
+          });
+       });
+       //Change slider according to input next to it
+       $("#budget-slider-amount").on('input', function() {
+         var budgetValue = this.value.replace(/\$/g, '').replace(/\,/g, '');
+         $( "#budget-slider" ).slider( "value", parseInt(budgetValue) );
+       });
+
        function submitContractual() {
          var submitData = {
            "name" : document.getElementById("contractual-name").value,
            "email" : document.getElementById("contractual-email").value,
            "company" : document.getElementById("contractual-company").value,
+           "budget" : document.getElementById("budget-slider-amount").value,
            "description" : document.getElementById("contractual-description").value
          };
          $.ajax({
@@ -329,7 +360,8 @@
      </script>
     </div>
     <!-- Links -->
-    <div>
+    <div class="container">
+
     </div>
    </div>
   </body>

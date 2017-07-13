@@ -14,6 +14,7 @@ class EmailController extends Controller
       $details = "Name: " . $emailDetails["name"] . "\n";
       $details .= "Email: " . $emailDetails["email"] . "\n";
       $details .= "Company: " . $emailDetails["company"] . "\n";
+      $details .= "Budget: " . $emailDetails["budget"] . "\n";
       $details .= "Project Description: " . $emailDetails["description"] . "\n";
       Mail::raw($details, function($message)
     	{
