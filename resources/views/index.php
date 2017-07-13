@@ -18,7 +18,7 @@
   <nav class="navbar fixed-top navbar-inverse bg-black">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">
-        <img class="logo" src="/images/logo.png" height="40px" width="40px" class="d-inline-block align-top" alt="">
+        <img src="<?php echo Storage::disk('s3')->url('logo.png'); ?>" class="navbar-logo d-inline-block align-top" height="40px" width="40px" alt="">
         <div>
           <div id="chiemeka">Chiemeka Ekwunazu</div><br>
           Creative Web Developer
@@ -33,9 +33,9 @@
     </div>
     <div class="navbar-collapse collapse" id="hamburger-menu">
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="#home">Who Am I</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact Me</a></li>
+        <li class="active"><a class="nav-link" href="#home">Who Am I</a></li>
+        <li><a class="nav-link" href="#projects">Projects</a></li>
+        <li><a class="nav-link" href="#contact">Contact Me</a></li>
       </ul>
     </div>
   </nav>
@@ -43,8 +43,8 @@
     <!-- Who Am I -->
     <div id="home">
       <div class="background-image-container">
-          <img class="bobby" src="/images/sky-bobby.png" height="10%"/>
-          <img class="background-image" src="images/skyimage.jpg" width="100%"/>
+          <img class="bobby" src="<?php echo Storage::disk('s3')->url('sky-bobby.png'); ?>" height="10%"/>
+          <img class="background-image" src="<?php echo Storage::disk('s3')->url('sky-image.jpg'); ?>" width="100%"/>
           <p class="intro">Hi, I'm Chiemeka (Bobby) Ekwunazu,<br><br>Your Next:</p>
           <div class="typed-strings">
               <p>Full Stack Web Developer.</p>
@@ -125,7 +125,7 @@
           //If its not this website, show the picture for the website
           if($project->imgstring != "ekwunazu"){
             echo '<div class="col-sm-5 desciption-container">
-                    <img class="project-image" src="images/projects/'.$project->imgstring.'-1.png" alt="'.$project->imgstring.'"/>
+                    <img class="project-image" src="'.Storage::disk('s3')->url('projects/'.$project->imgstring.'-1.png').'" alt="'.$project->imgstring.'"/>
                     <div class="description">
                       <p>'.$project->name.'<br>'.$project->description.'</p>
                     </div>
@@ -197,7 +197,7 @@
 
           //Set changing project image interval
           imageInterval = setInterval(function () {
-            backgroundImage.attr("src", "images/projects/"+backgroundImage.attr("alt")+"-"+imageIndex+".png");
+            backgroundImage.attr("src", "//ekwunazu-images.s3.amazonaws.com/projects/"+backgroundImage.attr("alt")+"-"+imageIndex+".png");
             //Make project image visible if invisible
             backgroundImage.css("display", "inline");
             imageIndex++;
@@ -220,7 +220,7 @@
           }
           else{
             // If it has a background image, change back to the original
-            backgroundImage.attr("src", "images/projects/"+backgroundImage.attr("alt")+"-1.png");
+            backgroundImage.attr("src", "//ekwunazu-images.s3.amazonaws.com/projects/"+backgroundImage.attr("alt")+"-1.png");
           }
           //Fade out animation
           jQuery(".description", this)
@@ -264,6 +264,7 @@
          </div>
        </div>
      </div>
+     <br>
      <!-- Contractual jobs -->
      <div id="contractual">
        <div class="row">
@@ -284,7 +285,7 @@
          </div>
          <div class="row">
            <div class="col-sm-12">
-             <input id="contractual-email" class="contractual-input" type="text" placeholder="Let me know what email to contact you back at.."></input>
+             <input id="contractual-email" class="contractual-input" type="text" placeholder="Let me know your email.."></input>
            </div>
          </div>
          <div class="row">
@@ -294,7 +295,7 @@
          </div>
          <div class="row" style="padding: 5px 0 0 0;">
            <div class="col-sm-12">
-             <input class="input-title" type="text" value="Budget" readonly></input>
+             <input class="input-title" type="text" value="Your budget:" readonly></input>
            </div>
          </div>
          <div class="row">
@@ -312,7 +313,7 @@
          </div>
          <div class="row">
            <div class="col-sm-12">
-             <button type="button" onclick="submitContractual()" class="btn-default">Send</button><p class="form-sent">Form Sent!</p>
+             <button type="button" onclick="submitContractual()" class="btn-vertical-margins btn-default">Send</button><p class="form-sent">Form Sent!</p>
            </div>
          </div>
        </form>
@@ -361,7 +362,42 @@
     </div>
     <!-- Links -->
     <div class="container">
-
+      <div class="row">
+        <div class="col-sm-12">
+          <img src="<?php echo Storage::disk('s3')->url('logo.png'); ?>" class="bottom-logo d-inline-block align-top" height="60px" width="60px" alt="">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <p class="bottom-title">Chiemeka Ekwunazu</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <p class="bottom-text">Web Developer and Designer</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <?php
+            $links = array(Storage::disk('s3')->url('resume.pdf')."' download",
+                           "//github.com/chiemekae/'",
+                           "//devpost.com/chiemeka/'",
+                           "skype:live:73dce987c87bee88?userinfo'");
+            for($num = 0; $num < 4; $num++){
+              $yStart = $num*-48;
+              echo "<a href='".$links[$num].">
+                      <div class='link-sprite' style='background: url(".Storage::disk('s3')->url('link-sprites.png').") ".$yStart."px 0; background-size: 460%; background-repeat: no-repeat;'></div>
+                    </a>";
+            }
+           ?>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <p class="bottom-text">Copyright © 2017 Chiemeka Ekwunazu</p>
+        </div>
+      </div>
     </div>
    </div>
   </body>

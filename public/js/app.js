@@ -764,7 +764,7 @@ const app = new Vue({
     el: '#app'
 });*/
 
-//Navbar scrolling and selection
+//Link scrolling and selection
 
 //Move to section of webpage clicked with Smoothscroll
 $(document).ready(function () {
@@ -776,24 +776,26 @@ $(document).ready(function () {
         $(document).off("scroll");
 
         //Change active link
-        $('a').each(function () {
-            $(this).parent().removeClass('active');
-        });
-        $(this).parent().addClass('active');
+        if ($(this).hasClass("nav-link")) {
+            $('a').each(function () {
+                $(this).parent().removeClass('active');
+            });
+            $(this).parent().addClass('active');
+        }
 
         //Scroll to section of webpage
         var target = this.hash,
             menu = target;
         $target = $(target);
         $('html, body').stop().animate({
-            'scrollTop': $target.offset().top + 2
+            'scrollTop': $target.offset().top - 50
         }, 500, 'swing', function () {
             window.location.hash = target;
             $(document).on("scroll", onScroll);
         });
 
         //Toggle nav menu if visible
-        if ($('.navbar-toggle').css('display') != 'none') {
+        if ($('#hamburger-menu').attr("aria-expanded") == "true") {
             $('.navbar-toggle').click();
         }
     });
@@ -804,7 +806,7 @@ $(document).ready(function () {
 });
 
 function onScroll(event) {
-    var scrollPos = $(document).scrollTop();
+    var scrollPos = $(document).scrollTop() + 50;
     //Change indicated link on navbar on scroll
     $('.nav a').each(function () {
         var currLink = $(this);
@@ -817,9 +819,12 @@ function onScroll(event) {
             currLi.removeClass("active");
         }
     });
-    //Change background of navbar once past the background image at the top
+    /*
+      Change background of navbar once past the background image at the top
+      or if hamburger menu is open.
+    */
     var transitionHeight = $('.background-image-container').height() - $('.navbar').height();
-    if (scrollPos > transitionHeight) {
+    if (scrollPos > transitionHeight || $('#hamburger-menu').attr("aria-expanded") == "true") {
         $('.navbar').addClass("navbar-dark");
     } else {
         $('.navbar').removeClass("navbar-dark");
