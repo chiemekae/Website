@@ -1,4 +1,4 @@
-## Website - [chiemeka.ekwunazu.com](https://chiemeka.ekwunazu.com)
+## Website - [chiemeka.ekwunazu.com](http://chiemeka.ekwunazu.com)
 
 This is my portfolio website showcasing my web development skills.
 
