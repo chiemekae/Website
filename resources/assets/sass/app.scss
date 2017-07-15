@@ -3,7 +3,16 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,600");
 
 //jQuery UI
-@import url("https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css");
+
+//Tingle.js CSS
+@import url("https://cdnjs.cloudflare.com/ajax/libs/tingle/0.11.0/tingle.min.css");
+
+//Slick Carousel CSS
+@import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css");
+
+//Slick Theme
+@import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css");
 
 // Variables
 @import "variables";
@@ -27,6 +36,8 @@ $navbar-inverse-toggle-hover-bg: transparent;
 $btn-default-color: #FFF;
 $btn-default-bg: #00BD9C;
 
+$gray: #D3D2D2;
+
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
@@ -49,10 +60,10 @@ a:hover {
 }
 
 input, textarea {
-  color: #3B3B3B;
+  color: $text-color;
   background-color: transparent;
   border-color: transparent;
-  border-bottom: 1px solid #3B3B3B;
+  border-bottom: 1px solid $text-color;
 }
 
 //Changing placeholder text color
@@ -148,7 +159,6 @@ input::-ms-input-placeholder, textarea::-ms-input-placeholder {
   text-transform: capitalize;
   font-size: 30px;
   font-weight: 300;
-  //border-bottom: 3px solid #3B3B3B;
 }
 
 .col-sm-12 {
@@ -304,6 +314,62 @@ input::-ms-input-placeholder, textarea::-ms-input-placeholder {
   width: 40px;
 }
 
+.tingle-modal {
+  display: flex !important;
+  overflow: visible !important;
+  height: 100%;
+}
+
+.tingle-modal-box {
+  width: 90%;
+  background: $gray;
+  border-radius: 0px;
+}
+
+.project-modal {
+  width: auto;
+}
+
+.project-title{
+  text-transform: capitalize;
+  margin: 0;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.project-text {
+  font-size: 16px;
+}
+
+.project-details {
+  @extend .project-text;
+  text-align: left;
+}
+
+.project-details-title {
+  @extend .project-details;
+  border-bottom: 0.5px solid $text-color;
+}
+
+.modal-image {
+  width: 90%;
+  margin: 0px auto;
+}
+
+.modal-carousel {
+  width: 645px;
+  margin: 10px auto;
+}
+
+.tingle-modal__closeLabel {
+  font-family: "Montserrat", sans-serif;
+}
+
+.tech-li {
+  float: left;
+  margin: 0 15px;
+}
+
 #projects,
 #contact,
 #projects .row {
@@ -318,7 +384,7 @@ input::-ms-input-placeholder, textarea::-ms-input-placeholder {
 }
 
 #contact {
-  background-color: #D8D8D8;
+  background-color: $gray;
 }
 
 #budget-slider {
@@ -331,7 +397,13 @@ input::-ms-input-placeholder, textarea::-ms-input-placeholder {
   text-align: center;
 }
 
-@media screen and (max-width:768px){
+@media (max-width:896px){
+  .modal-carousel {
+    width: 90%;
+  }
+}
+
+@media (max-width:768px){
   #projects .col-sm-5 {
     width: 100%;
   }
@@ -340,8 +412,44 @@ input::-ms-input-placeholder, textarea::-ms-input-placeholder {
   }
 }
 
-@media screen and (max-width:480px){
+@media (max-width:736px) and (orientation:landscape) {
+  .modal-carousel {
+    display: none;
+  }
+  .about-col {
+    display: none;
+  }
+}
+
+@media (max-width:540px){
+  .tingle-modal__close {
+    background-color: #004437;
+  }
+}
+
+@media (max-width:480px){
   p {
     font-size: 14px;
+  }
+  .tingle-modal-box__content {
+    padding-top: 2px;
+  }
+  .project-title {
+    font-size: 18px;
+  }
+  .project-text {
+    font-size: 14px;
+  }
+  .modal-btn {
+    padding: 2% 5%;
+  }
+  .about-col {
+    display: none;
+  }
+}
+
+@media (max-width:320px){
+  .tech-col {
+    display: none;
   }
 }

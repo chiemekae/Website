@@ -14,12 +14,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('welcome', function () {
-    return view('welcome');
-});
-
-Route::get('modal', function () {
-    return view('modal');
-});
-
 Route::post('/submitjob', 'EmailController@sendJobEmail');
+
+Route::post('/getproject', 'ProjectController@getProjectInfo');

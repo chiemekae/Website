@@ -1,26 +1,4 @@
-
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 require('./bootstrap');
-
-//window.Vue = require('vue');
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-/*Vue.component('example', require('./components/Example.vue'));
-
-const app = new Vue({
-    el: '#app'
-});*/
-
 
 
 //Link scrolling and selection
@@ -43,15 +21,17 @@ $(document).ready(function () {
         }
 
         //Scroll to section of webpage
-        var target = this.hash,
-            menu = target;
-        $target = $(target);
-        $('html, body').stop().animate({
-            'scrollTop': $target.offset().top-50
-        }, 500, 'swing', function () {
-            window.location.hash = target;
-            $(document).on("scroll", onScroll);
-        });
+        if(!$(this).hasClass("modal-link")){
+          var target = this.hash,
+              menu = target;
+          $target = $(target);
+          $('html, body').stop().animate({
+              'scrollTop': $target.offset().top-50
+          }, 500, 'swing', function () {
+              window.location.hash = target;
+              $(document).on("scroll", onScroll);
+          });
+        }
 
         //Toggle nav menu if visible
         if($('#hamburger-menu').attr("aria-expanded") == "true"){
