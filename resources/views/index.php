@@ -57,7 +57,7 @@
           </div>
           <script>
             //Adjust the height of the background image according to its width (Width of screen)
-            $('.background-image').css("height", (1680/$(".background-image").width())*($(".background-image").width()/2.1));
+            $('.background-image').css("height", (1680/$(".background-image").width())*($(".background-image").width()/2.7));
             //Adjust Bobby's height according to the height of the background image
             $('.bobby').css("height", 0.35*$(".background-image").height());
             //Place Bobby just above the edge of the background image
@@ -76,7 +76,7 @@
           <span class="typed"></span>
           <script>
             //Adjust Typed.js placement according to the height of the background image
-            $('.typed').css("top", 400*(800/$(".background-image").height()));
+            $('.typed').css("top", 300*(800/$(".background-image").height()));
           </script>
       </div>
       <div class="container">
