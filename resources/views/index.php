@@ -59,7 +59,7 @@
             //Adjust the height of the background image according to its width (Width of screen)
             $('.background-image').css("height", (1680/$(".background-image").width())*($(".background-image").width()/2.7));
             //Adjust Bobby's height according to the height of the background image
-            $('.bobby').css("height", 0.35*$(".background-image").height());
+            $('.bobby').css("height", 0.3*$(".background-image").height());
             //Place Bobby just above the edge of the background image
             $('.bobby').css("top",$(".background-image").height()-$(".bobby").height());
 
@@ -76,13 +76,13 @@
           <span class="typed"></span>
           <script>
             //Adjust Typed.js placement according to the height of the background image
-            $('.typed').css("top", 300*(800/$(".background-image").height()));
+            $('.typed').css("top", 310*(800/$(".background-image").height()));
           </script>
       </div>
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
-            <p class="center-text" style="margin-top: 50px;">I am a student at the University of Maryland, College Park as well as a freelance web designer and full stack and Wordpress web developer.<br>I am currently seeking web development internship offers and contractual remote design or development positions.</p>
+            <p class="center-text" style="margin-top: 50px;">I am a student at the University of Maryland, College Park as well as a freelance web designer and full stack web developer.<br>I'm currently looking to be hired as an intern or for a contractual web design/development position.</p>
           </div>
         </div>
         <div class="row">
