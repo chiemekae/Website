@@ -141,10 +141,10 @@
                                   <div class="col-sm-12">';
 
             if(data.website){
-              modalHTML += '<a class="modal-btn-anchor" href="'+data.website+'"><button type="button" class="modal-btn btn-default">Visit the website</button></a>';
+              modalHTML += '<a class="modal-btn-anchor" href="'+data.website+'" target="_blank" rel="noopener"><button type="button" class="modal-btn btn-default">Visit the website</button></a>';
             }
             if (data.repo){
-              modalHTML += '<a class="modal-btn-anchor" href="'+data.repo+'"><button type="button" class="modal-btn btn-default">Repository</button></a>';
+              modalHTML += '<a class="modal-btn-anchor" href="'+data.repo+'" target="_blank" rel="noopener"><button type="button" class="modal-btn btn-default">Repository</button></a>';
             }
 
             modalHTML += '</div>\
