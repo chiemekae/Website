@@ -353,6 +353,12 @@ input::-ms-input-placeholder, textarea::-ms-input-placeholder {
   margin: 0 15px;
 }
 
+.tertiary-title {
+  border-bottom: 1px solid $text-color;
+  width: 40%;
+  margin: 10px auto;
+}
+
 #projects,
 #contact,
 #projects .row {
