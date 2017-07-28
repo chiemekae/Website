@@ -38,6 +38,7 @@
     <div class="navbar-collapse collapse" id="hamburger-menu">
       <ul class="nav navbar-nav navbar-right">
         <li class="active"><a class="nav-link" href="#home">Who Am I</a></li>
+        <li><a class="nav-link" href="#skills">My Skills</a></li>
         <li><a class="nav-link" href="#projects">Projects</a></li>
         <li><a class="nav-link" href="#contact">Contact Me</a></li>
       </ul>
@@ -97,62 +98,64 @@
             </div>
           </div>
         </div>
-        <!-- -->
-        <?php
-          $skills = DB::table('skills')->get();
-          $frontend = [];
-          $backend = [];
-          $other = [];
-          foreach ($skills as $skill) {
-            $skillname = $skill->name;
-            switch($skill->type) {
-              case "frontend":
-                array_push($frontend, $skillname);
-                break;
-              case "backend":
-                array_push($backend, $skillname);
-                break;
-              case "other":
-                array_push($other, $skillname);
-                break;
-            }
+      </div>
+    </div>
+    <!-- Skills -->
+    <?php
+      $skills = DB::table('skills')->get();
+      $frontend = [];
+      $backend = [];
+      $other = [];
+      foreach ($skills as $skill) {
+        $skillname = $skill->name;
+        switch($skill->type) {
+          case "frontend":
+            array_push($frontend, $skillname);
+            break;
+          case "backend":
+            array_push($backend, $skillname);
+            break;
+          case "other":
+            array_push($other, $skillname);
+            break;
+        }
+      }
+      function skillsString($skillsarray){
+        $skillstring = "";
+        $i = 1;
+        foreach ($skillsarray as $skill){
+          $skillstring .= $skill;
+          if($i % 3 == 0){
+            $skillstring .= "<br>";
           }
-          function skillsString($skillsarray){
-            $skillstring = "";
-            $i = 1;
-            foreach ($skillsarray as $skill){
-              $skillstring .= $skill;
-              if($i % 3 == 0){
-                $skillstring .= "<br>";
-              }
-              else {
-                $skillstring .= str_repeat('&nbsp;', 5);
-              }
-              $i++;
-            }
-            return $skillstring;
+          else {
+            $skillstring .= str_repeat('&nbsp;', 5);
           }
-        ?>
-        <div class="row">
-          <div class="col-sm-12">
-            <p class="title">My skills</p>
-          </div>
+          $i++;
+        }
+        return $skillstring;
+      }
+    ?>
+        
+    <div id="skills">
+      <div class="row">
+        <div class="col-sm-12">
+          <p class="title">My skills</p>
         </div>
-        <div class="row">
-          <div class="col-sm-4">
-            <p class="tertiary-title">Frontend</p>
-            <p><?php echo skillsString($frontend); ?></p>
-          </div>
-          <div class="col-sm-4">
-            <p class="tertiary-title">Backend</p>
-            <p><?php echo skillsString($backend); ?></p>
-          </div>
-          <div class="col-sm-4">
-            <p class="tertiary-title">Other Skills</p>
-            <p><?php echo skillsString($other); ?></p>
-          </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <p class="tertiary-title">Frontend</p>
+          <p><?php echo skillsString($frontend); ?></p>
         </div>
-        <!-- -->
+        <div class="col-sm-4">
+          <p class="tertiary-title">Backend</p>
+          <p><?php echo skillsString($backend); ?></p>
+        </div>
+        <div class="col-sm-4">
+          <p class="tertiary-title">Other Skills</p>
+          <p><?php echo skillsString($other); ?></p>
+        </div>
       </div>
     </div>
 
