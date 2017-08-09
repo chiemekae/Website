@@ -1,51 +1,52 @@
-
 // Body
-$body-bg: #f5f8fa;
-$text-color: #636b6f;
+$body-bg                           : #f5f8fa;
+$text-color                        : #636b6f;
 
 // Borders
-$laravel-border-color: darken($body-bg, 10%);
-$list-group-border: $laravel-border-color;
-$navbar-default-border: $laravel-border-color;
-$panel-default-border: $laravel-border-color;
-$panel-inner-border: $laravel-border-color;
+$laravel-border-color              : darken($body-bg, 10%);
+$list-group-border                 : $laravel-border-color;
+$navbar-default-border             : $laravel-border-color;
+$panel-default-border              : $laravel-border-color;
+$panel-inner-border                : $laravel-border-color;
+$border-radius-base                : 0px;
 
 // Brands
-$brand-primary: #3097D1;
-$brand-info: #8eb4cb;
-$brand-success: #2ab27b;
-$brand-warning: #cbb956;
-$brand-danger: #bf5329;
+$brand-primary                     : #3097D1;
+$brand-info                        : #8eb4cb;
+$brand-success                     : #2ab27b;
+$brand-warning                     : #cbb956;
+$brand-danger                      : #bf5329;
 
 // Typography
-$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
-$font-size-base: 14px;
-$line-height-base: 1.6;
-
-// Navbar
-$navbar-default-bg: #fff;
+$icon-font-path                    : "~bootstrap-sass/assets/fonts/bootstrap/";
+$font-family-sans-serif            : "Montserrat", sans-serif;
+$font-size-base                    : 14px;
+$line-height-base                  : 2;
+$placeholder-color                 : #666;
 
 // Inputs
-$input-border: lighten($text-color, 40%);
-$input-border-focus: lighten($brand-primary, 25%);
-$input-color-placeholder: lighten($text-color, 30%);
+$input-border                      : lighten($text-color, 40%);
+$input-border-focus                : lighten($brand-primary, 25%);
+$input-color-placeholder           : lighten($text-color, 30%);
 
 // Panels
-$panel-default-heading-bg: #fff;
-
-$border-radius-base: 0px;
-$font-family-sans-serif: "Montserrat", sans-serif;
-$line-height-computed: 20px;
+$panel-default-heading-bg          : #fff;
 
 //Navbar
-$navbar-inverse-link-color: #FFFFFF;
-$navbar-inverse-bg: transparent;
-$navbar-inverse-link-active-bg: transparent;
-$navbar-inverse-border: transparent;
-$navbar-inverse-link-active-color: #298DFA;
+$navbar-default-bg                 : #fff;
+$navbar-inverse-link-color         : #FFFFFF;
+$navbar-inverse-bg                 : transparent;
+$navbar-inverse-link-active-bg     : transparent;
+$navbar-inverse-border             : transparent;
+$navbar-inverse-link-active-color  : #298DFA;
 $navbar-inverse-toggle-border-color: transparent;
-$navbar-inverse-toggle-hover-bg: transparent;
+$navbar-inverse-toggle-hover-bg    : transparent;
 
 //Button
-$btn-default-color: #FFF;
-$btn-default-bg: #00BD9C;
+$btn-default-color                 : #FFF;
+$btn-default-bg                    : #00BD9C;
+
+//Other
+$line-height-computed              : 20px;
+$background-2                      : #D3D2D2;
+$link-sprite                       : url('//ekwunazu-images.s3.amazonaws.com/link-sprites.png');

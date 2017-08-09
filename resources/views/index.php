@@ -88,12 +88,12 @@
         </div>
         <div class="row">
           <div class="col-sm-6">
-            <div class="centered-button-div">
+            <div class="centered-btn-div">
               <a href="#contractual"><button type="button" class="btn-default">I need a website</button></a>
             </div>
           </div>
           <div class="col-sm-6">
-            <div class="centered-button-div">
+            <div class="centered-btn-div">
               <a href="#internship"><button type="button" class="btn-default">I need an intern</button></a>
             </div>
           </div>
@@ -136,7 +136,7 @@
         return $skillstring;
       }
     ?>
-        
+
     <div id="skills">
       <div class="row">
         <div class="col-sm-12">
@@ -211,9 +211,9 @@
                         <div class="row">\
                           <div class="col-sm-12">\
                             <div class="modal-carousel">\
-                              <div><img class="modal-image" src="//ekwunazu-images.s3.amazonaws.com/projects/'+project+'-1.png" alt="'+project+'"/></div>\
-                              <div><img class="modal-image" src="//ekwunazu-images.s3.amazonaws.com/projects/'+project+'-2.png" alt="'+project+'"/></div>\
-                              <div><img class="modal-image" src="//ekwunazu-images.s3.amazonaws.com/projects/'+project+'-3.png" alt="'+project+'"/></div>\
+                              <div><img src="//ekwunazu-images.s3.amazonaws.com/projects/'+project+'-1.png" alt="'+project+'"/></div>\
+                              <div><img src="//ekwunazu-images.s3.amazonaws.com/projects/'+project+'-2.png" alt="'+project+'"/></div>\
+                              <div><img src="//ekwunazu-images.s3.amazonaws.com/projects/'+project+'-3.png" alt="'+project+'"/></div>\
                             </div>\
                           </div>\
                         </div>\
@@ -232,7 +232,7 @@
                             <p class="project-details-title">Technical Sheet</p>\
                             <ul>';
             for (var i = 0; i < technical.length; i++) {
-                modalHTML += '<li class="tech-li"><p class="project-details">'+technical[i]+'</p></li>';
+                modalHTML += '<li><p class="project-details">'+technical[i]+'</p></li>';
             }
             modalHTML +=   '</ul>\
                           </div>\
@@ -417,7 +417,7 @@
        </div>
        <div class="row">
          <div class="col-sm-12">
-           <div class="centered-button-div">
+           <div class="centered-btn-div">
              <a href="mailto:chiemeka@ekwunazu.com">
                <button type="button" class="btn-default">Email me</button>
              </a>
@@ -438,7 +438,7 @@
            <p class="center-text">Need a website? Fill out the form below and I’ll get in touch!</p>
          </div>
        </div>
-       <form class="form">
+       <form class="form-default">
          <div class="row">
            <div class="col-sm-12">
              <input id="contractual-name" class="contractual-input" type="text" placeholder="Write your name here.."></input>
@@ -542,15 +542,15 @@
       <div class="row">
         <div class="col-sm-12">
           <?php
-            $links = array(Storage::disk('s3')->url('resume.pdf')."' download",
-                           "//github.com/chiemekae/'",
-                           "//devpost.com/chiemeka/'",
-                           "skype:live:73dce987c87bee88?userinfo'");
+            $links = array(Storage::disk("s3")->url("resume.pdf").'" download',
+                           '//github.com/chiemekae/"',
+                           '//devpost.com/chiemeka/"',
+                           'skype:live:73dce987c87bee88?userinfo"');
+            $linkSprite = Storage::disk("s3")->url("link-sprites.png");
             for($num = 0; $num < 4; $num++){
-              $yStart = $num*-48;
-              echo "<a href='".$links[$num].">
-                      <div class='link-sprite' style='background: url(".Storage::disk('s3')->url('link-sprites.png').") ".$yStart."px 0; background-size: 460%; background-repeat: no-repeat;'></div>
-                    </a>";
+              echo '<a href="'.$links[$num].' target="_blank" rel="noopener">
+                      <div class="link-sprite-'.$num.'"></div>
+                    </a>';
             }
            ?>
         </div>
