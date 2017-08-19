@@ -57,28 +57,27 @@
               <p>Wordpress Developer.</p>
           </div>
           <script>
-            //Adjust the height of the background image according to its width (Width of screen)
-            $('.background-image').css("height", (1680/$(".background-image").width())*($(".background-image").width()/2.7));
-            //Adjust Bobby's height according to the height of the background image
-            $('.bobby').css("height", 0.3*$(".background-image").height());
-            //Place Bobby just above the edge of the background image
-            $('.bobby').css("top",$(".background-image").height()-$(".bobby").height());
-
-            //Typed.js
           	document.addEventListener("DOMContentLoaded", function(){
+              //Adjust the height of the background image according to its width (Width of screen)
+              $('.background-image').css("height", (1680/$(".background-image").width())*($(".background-image").width()/2.7));
+              //Adjust Bobby's height according to the height of the background image
+              $('.bobby').css("height", 0.3*$(".background-image").height());
+              //Place Bobby just above the edge of the background image
+              $('.bobby').css("top",$(".background-image").height()-$(".bobby").height());
+
+              //Typed.js
           		Typed.new(".typed", {
           			stringsElement: document.getElementsByClassName('typed-strings')[0],
           			typeSpeed: 0,
                 showCursor:false,
                 loop: true
           		});
+
+              //Adjust Typed.js placement according to the height of the background image
+              $('.typed').css("top", 310*(800/$(".background-image").height()));
           	});
           </script>
           <span class="typed"></span>
-          <script>
-            //Adjust Typed.js placement according to the height of the background image
-            $('.typed').css("top", 310*(800/$(".background-image").height()));
-          </script>
       </div>
       <div class="container">
         <div class="row">
@@ -319,7 +318,7 @@
                       <p>Want to see more examples?<br>Email me!</p>
                     </a>
                   </div>
-                </div>
+                  </div>
                 </div>';
         }
        ?>
@@ -479,6 +478,7 @@
          </div>
        </form>
      </div>
+    </div>
      <script>
        //jQuery UI Slider
        $( function() {
@@ -521,7 +521,6 @@
          });
        }
      </script>
-    </div>
     <!-- Links -->
     <div class="container">
       <div class="row">

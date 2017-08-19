@@ -21,12 +21,12 @@ $(document).ready(function () {
         }
 
         //Scroll to section of webpage
-        if(!$(this).hasClass("modal-link")){
+        if($(this).hasClass("nav-link")){
           var target = this.hash,
               menu = target;
           $target = $(target);
           $('html, body').stop().animate({
-              'scrollTop': $target.offset().top-50
+              'scrollTop': $target.offset().top
           }, 500, 'swing', function () {
               window.location.hash = target;
               $(document).on("scroll", onScroll);
@@ -63,7 +63,7 @@ function onScroll(event){
       Change background of navbar once past the background image at the top
       or if hamburger menu is open.
     */
-    var transitionHeight = $('.background-image-container').height() - $('.navbar').height();
+    var transitionHeight = $('.background-image-container').height();
     if(scrollPos > transitionHeight || $('#hamburger-menu').attr("aria-expanded") == "true"){
         $('.navbar').addClass("navbar-dark");
     }else{
