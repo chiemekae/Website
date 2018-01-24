@@ -82,7 +82,7 @@
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
-            <p class="center-text" style="margin-top: 50px;">I am a student at the University of Maryland, College Park as well as a freelance web designer and full stack web developer.<br>I'm currently looking to be hired as an intern or for a contractual web design/development position.</p>
+            <p class="center-text" style="margin-top: 50px;">I am a student at the University of Maryland, College Park as well as a freelance web designer and full stack web developer.<br>I'm currently looking to be hired for contractual web design/development positions, and I will be working at Zillow Group in summer 2018 as a software engineering intern.</p>
           </div>
         </div>
         <div class="row">
